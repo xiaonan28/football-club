@@ -1,0 +1,28 @@
+<div *ngIf="!players" class="loading-box text-center">
+    <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+<div *ngIf="players" class="table-responsive">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">PLAYER</th>
+                <th scope="col">NUMBER</th>
+                <th scope="col">POSITION</th>
+                <th scope="col">NATIONALITY</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of players; index as i">
+                <td>
+                    {{ item.name || '-' }}
+                </td>
+                <td>{{ item.shirtNumber || '-' }}</td>
+                <td>{{ item.position || '-' }}</td>
+                <td>{{ item.nationality|| '-' }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

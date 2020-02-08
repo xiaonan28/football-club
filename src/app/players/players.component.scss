@@ -1,0 +1,29 @@
+.table thead th {
+  border-bottom: 1px solid #dee2e6;
+  border-top: 0;
+  color: rgb(161, 160, 163);
+  &:nth-of-type(2),
+  &:nth-of-type(3),
+  &:nth-of-type(4) {
+    text-align: center;
+  }
+}
+.table td {
+  border-top: 0;
+  color: rgb(161, 160, 163);
+  &:nth-of-type(2),
+  &:nth-of-type(3),
+  &:nth-of-type(4) {
+    text-align: center;
+  }
+}
+.table-responsive {
+  box-shadow: 0 30px 30px -30px rgba($color: #000000, $alpha: 0.2),
+    0 -30px 30px -30px rgba($color: #000000, $alpha: 0.2);
+  margin-top: 3rem;
+  padding: 0 2.5rem;
+}
+
+.loading-box {
+  padding-top: 10rem;
+}

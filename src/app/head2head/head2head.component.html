@@ -1,0 +1,75 @@
+<div *ngIf="!competition" class="loading-box text-center">
+    <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+<div *ngIf="competition" class="table-responsive">
+    <div class="row select-box">
+        <div class="col-lg-2">
+            <div class="label">HOME TEAM</div>
+            <div ngbDropdown class="d-inline-block">
+                <button class="btn btn-outline-primary">Chelsea</button>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="label">LEAGUE</div>
+            <div ngbDropdown class="d-inline-block">
+                <button class="btn btn-outline-primary" ngbDropdownToggle>{{league||'Premier League'}}</button>
+                <div ngbDropdownMenu>
+                    <button ngbDropdownItem (click)="selectLeague(2021,'Premier League')">Premier League</button>
+                    <button ngbDropdownItem (click)="selectLeague(2001,'UEFA Champions
+                    League')">UEFA Champions
+                        League</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="label">RIVAL</div>
+            <div ngbDropdown class="d-inline-block">
+                <button class="btn btn-outline-primary" ngbDropdownToggle>{{rival||rivals[0].name}}</button>
+                <div ngbDropdownMenu class="scroll-bar">
+                    <button *ngFor="let item of rivals" ngbDropdownItem
+                        (click)="selectRivals(item.id,item.name)">{{item.name}}</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <table class="table .table-striped">
+        <thead>
+            <tr>
+                <th scope="col">HEAD 2 HEAD</th>
+                <th scope="col">Won</th>
+                <th scope="col">Drawn</th>
+                <th scope="col">Lost</th>
+                <th scope="col">Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="grey">
+                <td class="bold">
+                    <img class="table-team-logo" src="http://upload.wikimedia.org/wikipedia/de/5/5c/Chelsea_crest.svg"
+                        alt="">
+                    <br />
+                    Chelsea FC
+                </td>
+                <td>{{ table.home.won  }}</td>
+                <td>{{ table.home.draw }}</td>
+                <td>{{ table.home.lost }}</td>
+                <td><span [class]="table.home.diff>0?'green':'red'">{{ table.home.diff }}</span></td>
+            </tr>
+            <tr>
+                <td class="bold">
+                    <img class="table-team-logo" [src]="table.crestUrl" alt="">
+                    <br />
+                    {{table.name}}
+                </td>
+                <td>{{ table.rival.won  }}</td>
+                <td>{{ table.rival.draw }}</td>
+                <td>{{ table.rival.lost }}</td>
+                <td><span [class]="table.rival.diff>0?'green':'red'">{{ table.rival.diff }}</span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

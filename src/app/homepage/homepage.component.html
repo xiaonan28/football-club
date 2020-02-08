@@ -1,0 +1,55 @@
+<div class="container">
+
+    <div class="title-blue-bg">UPCOMING</div>
+    <div class="card row">
+        <div class="col-sm">
+            <img class="team-logo" [src]="theNearestScheduledMatch?.homeTeam.crestUrl " alt="">
+            <div class="team-name">{{theNearestScheduledMatch?.homeTeam.name }}</div>
+        </div>
+        <div class="col-sm date">
+            <!-- Loading -->
+            <div *ngIf="!theNearestScheduledMatch" class="text-center">
+                <div class="spinner-border" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+
+            <p *ngIf="theNearestScheduledMatch">V . S .</p>
+            <p *ngIf="theNearestScheduledMatch">{{week}}</p>
+            <p *ngIf="theNearestScheduledMatch">{{date}}</p>
+        </div>
+        <div class="col-sm">
+            <img class="team-logo" [src]="theNearestScheduledMatch?.awayTeam.crestUrl" alt="">
+            <div class="team-name">{{theNearestScheduledMatch?.awayTeam.name}}</div>
+        </div>
+    </div>
+
+    <div class="title-blue-bg">LAST GAME</div>
+
+    <div class="card row">
+        <div class="col-sm">
+            <img class="team-logo" [src]="theNearestFinishedMatch?.homeTeam.crestUrl" alt="">
+            <div class="team-name">{{theNearestFinishedMatch?.homeTeam.name}}</div>
+        </div>
+        <div class="col-sm score">
+            <!-- Loading -->
+            <div *ngIf="!theNearestFinishedMatch" class="text-center">
+                <div class="spinner-border" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+
+            <p *ngIf="theNearestFinishedMatch">Full Time</p>
+            <p *ngIf="theNearestFinishedMatch">
+                <span class="score-label">{{theNearestFinishedMatch?.score.fullTime.homeTeam}}</span>
+                <span class="score-label">{{theNearestFinishedMatch?.score.fullTime.awayTeam}}</span>
+            </p>
+            <p>{{theNearestFinishedMatch?.competition.name}}</p>
+        </div>
+        <div class="col-sm">
+            <img class="team-logo" [src]="theNearestFinishedMatch?.awayTeam.crestUrl" alt="">
+            <div class="team-name">{{theNearestFinishedMatch?.awayTeam.name}}</div>
+        </div>
+    </div>
+
+</div>

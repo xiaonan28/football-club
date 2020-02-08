@@ -1,0 +1,29 @@
+<div class="container">
+    <div *ngIf="objKeys(list).length === 0" class="loading-box text-center">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <div *ngFor="let key of objKeys(list)">
+        <div class="title">{{list[key][0].dateDDMY}}</div>
+        <div *ngFor="let item of list[key]" [class]="(item.score.winner == 'HOME_TEAM'&&item.homeTeam.name=='Chelsea FC'||item.score.winner == 'AWAY_TEAM'&& item.awayTeam.name=='Chelsea FC')?'win card row':'card row'">
+            <div class="col-sm">
+                <img class="team-logo" [src]="item.homeTeam.crestUrl" alt="">
+                <div class="team-name">{{item.homeTeam.name}}</div>
+            </div>
+            <div class="col-sm score">
+                <p>Full Time</p>
+                <p>
+                    <span class="score-label">{{item.score.fullTime.homeTeam}}</span>
+                    <span class="score-label">{{item.score.fullTime.awayTeam}}</span>
+                </p>
+                <p>{{item.competition.name}}</p>
+            </div>
+            <div class="col-sm">
+                <img class="team-logo" [src]="item.awayTeam.crestUrl" alt="">
+                <div class="team-name">{{item.awayTeam.name}}</div>
+            </div>
+        </div>
+    </div>
+
+</div>

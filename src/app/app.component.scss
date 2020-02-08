@@ -1,0 +1,70 @@
+header {
+  background-color: rgb(240, 241, 243);
+  .logo-box {
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    img {
+      width: 80px;
+    }
+    .logo-title {
+      padding-left: 20px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+  }
+}
+
+section.container {
+  min-height: 100vh;
+}
+
+nav {
+  background-color: rgb(3, 69, 146);
+  font-weight: bold;
+  padding: 1rem 0;
+  .nav-tabs {
+    border-bottom: 0;
+  }
+  .nav-pills {
+    .nav-link {
+      border-radius: 0;
+      padding: 0.2rem 1rem;
+      &.active,
+      .nav-pills .show > .nav-link {
+        background-color: rgb(66, 113, 167);
+      }
+    }
+  }
+  a {
+    color: #fff !important;
+    border: 0 !important;
+    margin-right: 1.5rem;
+  }
+}
+
+footer {
+  background-color: rgb(240, 240, 242);
+  color: rgb(161, 160, 163);
+  width: 100%;
+  min-height: 5rem;
+  line-height: 5rem;
+  margin-top: 5rem;
+  .col-sm {
+    cursor: pointer;
+  }
+  .club {
+    flex: 300px;
+    padding-left: 35px;
+    padding-right: 150px;
+    font-style: oblique;
+    color: rgb(173, 172, 174);
+    cursor: default;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  footer {
+    line-height: 2rem;
+  }
+}

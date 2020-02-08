@@ -1,0 +1,53 @@
+<div class="table-responsive">
+    <div class="row select-box">
+        <div class="col-lg-3">
+            <div class="label">LEAGUE</div>
+            <div ngbDropdown class="d-inline-block">
+                <button class="btn btn-outline-primary" id="dropdownBasic1"
+                    ngbDropdownToggle>{{league||'Premier League'}}</button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                    <button ngbDropdownItem (click)="selectChange(2021, 'Premier League')">Premier League</button>
+                    <button ngbDropdownItem (click)="selectChange(2001, 'UEFA Champions League')">UEFA Champions
+                        League</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <div class="label">SEASON</div>
+            <div ngbDropdown class="d-inline-block">
+                <button class="btn btn-outline-primary">{{season}}</button>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="!tables" class="loading-box text-center">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <table *ngIf="tables" class="table">
+        <thead>
+            <tr>
+                <th scope="col">Ranking</th>
+                <th scope="col">Total</th>
+                <th scope="col">Won</th>
+                <th scope="col">Drawn</th>
+                <th scope="col">Lost</th>
+                <th scope="col">Points</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of tables; index as i" [class]="item.team.id === teamId?'grey':''">
+                <td>
+                    {{i+1}}
+                    <img class="table-team-logo" [src]="item.team.crestUrl" alt="">
+                    {{ item.team.name || '-' }}
+                </td>
+                <td>{{ item.playedGames || '-' }}</td>
+                <td>{{ item.won || '-' }}</td>
+                <td>{{ item.draw|| '-' }}</td>
+                <td>{{ item.lost|| '-' }}</td>
+                <td><span class="green">{{ item.points|| '-' }}</span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

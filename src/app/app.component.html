@@ -1,0 +1,35 @@
+<!-- header -->
+<header>
+    <div class="container logo-box">
+        <img src="http://upload.wikimedia.org/wikipedia/de/5/5c/Chelsea_crest.svg" alt="">
+        <div class="logo-title">CHELSEA FOOTBALL CLUB</div>
+    </div>
+</header>
+
+<!-- your navs bound to current route fragments -->
+<nav>
+    <ul ngbNav [activeId]="current || 'homepage'" class="nav-pills nav-tabs container">
+        <li [ngbNavItem]="link.path" *ngFor="let link of links">
+            <a ngbNavLink [routerLink]="link.path" [fragment]="link.path">{{ link.title }}</a>
+        </li>
+    </ul>
+</nav>
+
+<!-- and an actual outlet elsewhere -->
+<section class="container">
+    <router-outlet></router-outlet>
+</section>
+
+<!-- footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm club">@ CHELSEA FOOTBALL CLUB</div>
+            <div class="col-sm">help</div>
+            <div class="col-sm">safety</div>
+            <div class="col-sm">privacy</div>
+            <div class="col-sm">feedback</div>
+            <div class="col-sm">terms</div>
+        </div>
+    </div>
+</footer>
