@@ -28,7 +28,7 @@
     "angular-footballdata-api-factory": "^0.2.4",
     "bootstrap": "^4.4.1",
     "jquery": "^3.4.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "moment-timezone": "^0.5.27",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
