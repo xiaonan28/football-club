@@ -29,7 +29,7 @@
     "bootstrap": "^4.4.1",
     "jquery": "^3.4.1",
     "moment": "^2.24.0",
-    "moment-timezone": "^0.5.27",
+    "moment-timezone": "^0.5.35",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
